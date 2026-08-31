@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ferran Lemmi (Skillt0nZ) — The Chainsaw Domain</title>
+<style>
+  :root {
+    --bg: #070707;
+    --card-bg: #111113;
+    --text: #f5f5f7;
+    --text-muted: #9999a1;
+    --accent: #ff2200;
+    --accent2: #ffcc00;
+    --border: #222226;
+  }
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; scroll-behavior: smooth; }
+  body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+
+  header.nav {
+    position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 40px; background: rgba(7, 7, 7, 0.9); backdrop-filter: blur(12px); border-bottom: 2px solid var(--accent); z-index: 1000;
+  }
+  .logo { font-weight: 900; font-size: 1.3rem; color: var(--text); text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; }
+  .logo span { color: var(--accent); }
+  nav a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; transition: color 0.2s; }
+  nav a:hover { color: var(--accent2); }
+
+  main { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  
+  .section { padding: 100px 0 60px 0; border-bottom: 1px solid var(--border); }
+  .section-heading { margin-bottom: 40px; }
+  .eyebrow { color: var(--accent2); font-size: 0.8rem; font-weight: 900; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 8px; }
+  h2 { font-size: 2.4rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+
+  .hero { min-height: 90vh; display: flex; align-items: center; justify-content: space-between; padding-top: 80px; gap: 40px; }
+  .hero h1 { font-size: 3.8rem; font-weight: 900; line-height: 1.05; margin-bottom: 20px; text-transform: uppercase; }
+  .hero h1 span { color: var(--accent); text-shadow: 0 0 20px rgba(255,34,0,0.6); }
+  .hero-text { color: var(--text-muted); font-size: 1.15rem; max-width: 600px; margin-bottom: 30px; }
+  .buttons { display: flex; gap: 15px; }
+  .button { padding: 14px 28px; border-radius: 6px; font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.2s, background 0.2s; }
+  .button.primary { background: var(--accent); color: white; box-shadow: 0 0 15px rgba(255,34,0,0.5); }
+  .button.secondary { background: var(--card-bg); color: var(--text); border: 2px solid var(--border); }
+  .button:hover { transform: translateY(-3px); }
+
+  .hero-card {
+    background: var(--card-bg); border: 2px solid var(--border); border-radius: 20px; padding: 40px;
+    display: flex; flex-direction: column; align-items: center; text-align: center; min-width: 300px; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  }
+  
+  .hero-card .orb {
+    width: 140px; height: 140px;
+    background: conic-gradient(from 0deg at 50% 50%, var(--accent), var(--accent2), #ff0044, var(--accent));
+    border-radius: 50%; position: relative; filter: blur(12px); opacity: 0.9;
+    animation: spinOrb 4s linear infinite, pulseGlow 2s ease-in-out infinite alternate;
+    margin-bottom: 20px;
+  }
+  .hero-card .orb::before {
+    content: ''; position: absolute; inset: -18px; border: 3px solid var(--accent2);
+    border-radius: 50%; animation: reverseSpin 8s linear infinite; opacity: 0.7;
+  }
+  @keyframes spinOrb { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.15); } 100% { transform: rotate(360deg) scale(1); } }
+  @keyframes reverseSpin { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
+  @keyframes pulseGlow { 0% { filter: blur(8px); opacity: 0.7; } 100% { filter: blur(18px); opacity: 1; } }
+
+  .hero-card p { font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px; color: var(--accent2); }
+  .hero-card small { color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+  article { background: var(--card-bg); border: 2px solid var(--border); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+  article:hover { transform: translateY(-5px); border-color: var(--accent); }
+  article b { font-size: 0.75rem; color: var(--accent2); letter-spacing: 1.5px; margin-bottom: 10px; font-weight: 900; }
+  article h3 { font-size: 1.3rem; margin-bottom: 10px; text-transform: uppercase; }
+  article p { color: var(--text-muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 15px; }
+  article em { font-style: normal; font-size: 0.75rem; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px; align-self: flex-start; color: var(--text-muted); font-weight: 700; }
+
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .photo-card { background: var(--card-bg); border: 2px solid var(--border); height: 200px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-weight: 800; letter-spacing: 1px; }
+  .photo-card.tall { height: 420px; grid-row: span 2; }
+
+  .about { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+  .about p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem; }
+
+  footer { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+  footer a { color: var(--text); text-decoration: none; font-weight: 700; }
+</style>
+</head>
+<body>
+<header class="nav"><a class="logo" href="#home">Skillt0nZ<span>.</span></a><nav><a href="#home">Home</a><a href="#photos">Photos</a><a href="#anime">Anime</a><a href="#ambitions">Ambitions</a><a href="#projects">Projects</a><a href="#about">About</a></nav></header>
+<main>
+<section id="home" class="hero"><div><p class="eyebrow">WELCOME TO MY CORNER OF THE INTERNET</p><h1>Hey, I'm <span>Ferran Lemmi</span> a.k.a <span>Skillt0nZ</span>.</h1><p class="hero-text">A high-voltage personal space for my Blender 3D builds, favorite anime chaos like Chainsaw Man, legendary partners like Blaziken, and everything I want to accomplish someday.</p><div class="buttons"><a class="button primary" href="#projects">See my projects</a><a class="button secondary" href="#about">About me</a></div></div><div class="hero-card"><div class="orb"></div><p>REV UP. PULL THE CORD.</p><small>Maximum chaos loaded.</small></div></section>
+
+<section id="photos" class="section"><div class="section-heading"><p class="eyebrow">PHOTO WALL</p><h2>Some of my photos 📸</h2><p>Replace these demo cards with your own pictures later.</p></div><div class="gallery"><div class="photo-card"><span>PHOTO 01</span></div><div class="photo-card tall"><span>PHOTO 02</span></div><div class="photo-card"><span>PHOTO 03</span></div><div class="photo-card"><span>PHOTO 04</span></div><div class="photo-card tall"><span>PHOTO 05</span></div><div class="photo-card"><span>PHOTO 06</span></div></div></section>
+
+<section id="anime" class="section"><div class="section-heading"><p class="eyebrow">WATCHLIST</p><h2>Anime I've Watched 🍿</h2><p>From total chaos to masterclass animation.</p></div><div class="grid">
+<article>
+  <div style="width:100%; height:180px; overflow:hidden; border-radius:10px; margin-bottom:15px; background:#111;"><img src="Images/chainsaw man.jpg" alt="Chainsaw Man" style="width:100%; height:100%; object-fit:cover;"></div>
+  <b>FAVORITE</b><h3>Chainsaw Man</h3><p>Absolute peak chaos. Denji is the ultimate protagonist.</p><em>ACTION</em>
+</article>
+<article>
+  <div style="width:100%; height:180px; overflow:hidden; border-radius:10px; margin-bottom:15px; background:#111;"><img src="Images/dandadan.jpg" alt="Dandadan" style="width:100%; height:100%; object-fit:cover;"></div>
+  <b>WATCHED</b><h3>Dandadan</h3><p>Supernatural thrills, high energy, and incredible momentum.</p><em>SCI-FI</em>
+</article>
+<article>
+  <div style="width:100%; height:180px; overflow:hidden; border-radius:10px; margin-bottom:15px; background:#111;"><img src="Images/demon slayer.jpg" alt="Demon Slayer" style="width:100%; height:100%; object-fit:cover;"></div>
+  <b>WATCHED</b><h3>Demon Slayer</h3><p>Breathtaking animation and intense sword-fighting action.</p><em>ACTION</em>
+</article>
+<article>
+  <div style="width:100%; height:180px; overflow:hidden; border-radius:10px; margin-bottom:15px; background:#111;"><img src="Images/horimya.jpg" alt="Horimiya" style="width:100%; height:100%; object-fit:cover;"></div>
+  <b>WATCHED</b><h3>Horimiya</h3><p>A wholesome slice-of-life romance with great character dynamics.</p><em>ROMANCE</em>
+</article>
+<article>
+  <div style="width:100%; height:180px; overflow:hidden; border-radius:10px; margin-bottom:15px; background:#111;"><img src="Images/your name.jpg" alt="Your Name." style="width:100%; height:100%; object-fit:cover;"></div>
+  <b>WATCHED</b><h3>Your Name.</h3><p>A stunning visual masterpiece with a memorable story.</p><em>DRAMA</em>
+</article>
+<article>
+  <div style="width:100%; height:180px; overflow:hidden; border-radius:10px; margin-bottom:15px; background:#111;"><img src="Images/mashle.jpg" alt="Mashle" style="width:100%; height:100%; object-fit:cover;"></div>
+  <b>WATCHED</b><h3>Mashle: Magic and Muscles</h3><p>Pure comedy powered by brute strength and cream puffs.</p><em>COMEDY</em>
+</article>
+<article>
+  <div style="width:100%; height:180px; overflow:hidden; border-radius:10px; margin-bottom:15px; background:#111;"><img src="Images/jjk.jpg" alt="JJK" style="width:100%; height:100%; object-fit:cover;"></div>
+  <b>WATCHED</b><h3>Jujutsu Kaisen</h3><p>High-stakes sorcery, cursed energy, and phenomenal fights.</p><em>ACTION</em>
+</article>
+<article>
+  <div style="width:100%; height:180px; overflow:hidden; border-radius:10px; margin-bottom:15px; background:#111;"><img src="Images/solo leveling.jpg" alt="Solo Leveling" style="width:100%; height:100%; object-fit:cover;"></div>
+  <b>WATCHED</b><h3>Solo Leveling</h3><p>The ultimate journey from the weakest hunter to the shadow monarch.</p><em>FANTASY</em>
+</article>
+<article>
+  <div style="width:100%; height:180px; overflow:hidden; border-radius:10px; margin-bottom:15px; background:#111;"><img src="Images/death note.jpg" alt="Death Note" style="width:100%; height:100%; object-fit:cover;"></div>
+  <b>WATCHED</b><h3>Death Note</h3><p>A brilliant psychological chess match of wits and justice.</p><em>THRILLER</em>
+</article>
+<article>
+  <div style="width:100%; height:180px; overflow:hidden; border-radius:10px; margin-bottom:15px; background:#111;"><img src="Images/weathering with you.jpg" alt="Weathering with You" style="width:100%; height:100%; object-fit:cover;"></div>
+  <b>WATCHED</b><h3>Weathering With You</h3><p>Breathtaking skies and another emotional journey by Makoto Shinkai.</p><em>DRAMA</em>
+</article>
+<article>
+  <div style="width:100%; height:180px; overflow:hidden; border-radius:10px; margin-bottom:15px; background:#111;"><img src="Images/spy x family.jpg" alt="Spy x Family" style="width:100%; height:100%; object-fit:cover;"></div>
+  <b>WATCHED</b><h3>Spy x Family</h3><p>A spy, an assassin, and a telepath walk into a fake family...</p><em>COMEDY</em>
+</article>
+<article>
+  <div style="width:100%; height:180px; overflow:hidden; border-radius:10px; margin-bottom:15px; background:#111;"><img src="Images/one piece.jpg" alt="One Piece" style="width:100%; height:100%; object-fit:cover;"></div>
+  <b>WATCHED</b><h3>One Piece</h3><p>The legendary adventure for the ultimate treasure.</p><em>ADVENTURE</em>
+</article>
+</div></section>
+
+<section id="ambitions" class="section"><div class="section-heading"><p class="eyebrow">THE PLAN</p><h2>Things I want to do 🚀</h2></div><div class="grid"><article><b>01</b><h3>Become a Software Engineer</h3><p>Build powerful applications, write clean code, and master software development.</p></article><article><b>02</b><h3>Master Blender</h3><p>Push 3D creation to absolute limits, crafting wild models and environments.</p></article></div></section>
+
+<section id="projects" class="section"><div class="section-heading"><p class="eyebrow">WHAT I'M MAKING</p><h2>Projects 🛠️</h2></div><div class="grid"><article><div class="icon">◇</div><h3>Blender Creations</h3><p>3D models, renders, and experiments built from pure imagination.</p><em>3D</em></article></div></section>
+
+<section id="about" class="section about"><div><p class="eyebrow">A LITTLE ABOUT ME</p><h2>Just getting started</h2></div><div><p>I'm Ferran Lemmi, also known as Skillt0nZ. I was born in India on December 18th, 2012, and spent a long time living in the Middle East. Right now, I am <span id="exact-age" style="color:var(--accent2); font-weight:bold;">calculating age...</span> old!</p><p>This site is my personal space on the web — a digital domain where I build 3D models in Blender, channel total Chainsaw Man (Denji is unmatched) energy, and train alongside my favorite Pokémon, Blaziken.</p></div></section>
+</main><footer><p>© 2026 Ferran Lemmi (Skillt0nZ) · Built from scratch.</p><a href="#home">Back to top ↑</a></footer>
+
+<script>
+function updateAge() {
+  const dob = new Date(2012, 11, 18);
+  const now = new Date();
+
+  let years = now.getFullYear() - dob.getFullYear();
+  let months = now.getMonth() - dob.getMonth();
+  let days = now.getDate() - dob.getDate();
+
+  if (days < 0) {
+    months--;
+    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+    days += prevMonth.getDate();
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  document.getElementById("exact-age").textContent = `${years} years, ${months} months, and ${days} days`;
+}
+
+updateAge();
+</script>
+</body></html>
