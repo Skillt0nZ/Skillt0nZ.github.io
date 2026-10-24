@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9e4d8">
+  <title>Skillt0nZ — Photo wall</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="JavaScript.js" defer></script>
+</head>
+<body id="top">
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="Skillt0nZ home">SKILLT0N<span>Z</span><i>®</i></a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">MENU <span>＋</span></button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html">01 / HOME</a><a href="anime.html">02 / ANIME</a><a class="active" href="photos.html">03 / PHOTOS</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch colour theme">☼</button>
+      <button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="false" aria-label="Enable sound effects" title="Sound effects off">SFX <span>OFF</span></button>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-intro photos-intro">
+      <p class="kicker"><span class="live-dot"></span> CAMERA ROLL / PERSONAL ARCHIVE</p>
+      <h1>KEEP THE<br><span class="red-underline">GOOD FRAMES.</span></h1>
+      <div class="intro-bottom"><p>A little gallery for pictures, places, and random moments worth saving.</p><span class="hand-note">NO PERFECT SHOTS<br>JUST REAL MOMENTS</span></div>
+    </section>
+    </section>
+
+    <section class="photo-grid" aria-label="Photo gallery">
+      <button class="photo-card photo-tall" type="button" data-photo="Photos/photo-1.jpg" data-caption="Photo 01"><span class="photo-placeholder">01<span>ADD A PHOTO</span></span><img src="Photos/photo-1.jpg" alt="Photo 01" loading="lazy"><span class="photo-caption"><b>FRAME 01</b><span>OPEN ↗</span></span></button>
+      <button class="photo-card" type="button" data-photo="Photos/photo-2.jpg" data-caption="Photo 02"><span class="photo-placeholder">02<span>ADD A PHOTO</span></span><img src="Photos/photo-2.jpg" alt="Photo 02" loading="lazy"><span class="photo-caption"><b>FRAME 02</b><span>OPEN ↗</span></span></button>
+      <button class="photo-card" type="button" data-photo="Photos/photo-3.jpg" data-caption="Photo 03"><span class="photo-placeholder">03<span>ADD A PHOTO</span></span><img src="Photos/photo-3.jpg" alt="Photo 03" loading="lazy"><span class="photo-caption"><b>FRAME 03</b><span>OPEN ↗</span></span></button>
+      <button class="photo-card" type="button" data-photo="Photos/photo-4.jpg" data-caption="Photo 04"><span class="photo-placeholder">04<span>ADD A PHOTO</span></span><img src="Photos/photo-4.jpg" alt="Photo 04" loading="lazy"><span class="photo-caption"><b>FRAME 04</b><span>OPEN ↗</span></span></button>
+      <button class="photo-card photo-wide" type="button" data-photo="Photos/photo-5.jpg" data-caption="Photo 05"><span class="photo-placeholder">05<span>ADD A PHOTO</span></span><img src="Photos/photo-5.jpg" alt="Photo 05" loading="lazy"><span class="photo-caption"><b>FRAME 05</b><span>OPEN ↗</span></span></button>
+      <button class="photo-card" type="button" data-photo="Photos/photo-6.jpg" data-caption="Photo 06"><span class="photo-placeholder">06<span>ADD A PHOTO</span></span><img src="Photos/photo-6.jpg" alt="Photo 06" loading="lazy"><span class="photo-caption"><b>FRAME 06</b><span>OPEN ↗</span></span></button>
+    </section>
+    <p class="archive-footnote">MEMORY IS A CAMERA WITH TERRIBLE STORAGE.</p>
+  </main>
+
+  <div class="modal" id="photo-modal" aria-hidden="true">
+    <button class="modal-backdrop" type="button" data-close-modal aria-label="Close photo preview"></button>
+    <section class="photo-modal-box" role="dialog" aria-modal="true" aria-labelledby="photo-modal-caption">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>
+      <img id="photo-modal-image" src="" alt="Expanded photo">
+      <p id="photo-modal-caption">PHOTO</p>
+    </section>
+  </div>
+
+  <footer class="site-footer"><a class="wordmark" href="index.html">SKILLT0N<span>Z</span><i>®</i></a><p>Made by Ferran Lemmi · © <span id="year"></span></p><a href="index.html" class="back-top">← HOME</a></footer>
+</body>
+</html>
