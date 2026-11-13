@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
       Math.floor((today - startDate) / 86400000)
     );
 
-    const episode = 82 + daysPassed * 2;
+    const episode = 102 + daysPassed * 2;
 
     const progressLabel = $(
       "[data-one-piece-progress]",
