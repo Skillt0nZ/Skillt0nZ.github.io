@@ -347,7 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
       now.getDate()
     );
 
-    const startDate = Date.UTC(2026, 9, 24);
+    const startDate = Date.UTC(2026, 11, 12);
 
     const daysPassed = Math.max(
       0,
